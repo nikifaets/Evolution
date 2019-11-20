@@ -1,11 +1,11 @@
 extends Node
 var Individual = load("res://Individual/Individual.tscn")
 
-export var INDIVUDUALS_AMOUNT = 10
+export var INDIVIDUALS_AMOUNT = 10
 
 func _ready():
 	
-	for i in range(0, INDIVUDUALS_AMOUNT):
+	for i in range(0, INDIVIDUALS_AMOUNT):
 		call_deferred("create_unit")
 		
 
@@ -15,13 +15,13 @@ func _ready():
 
 func create_unit() -> void:
 	
-	var length = owner.get_viewport_rect().size.y
-	var height = owner.get_viewport_rect().size.x
+	var length = owner.get_viewport_rect().size.y - 50
+	var height = owner.get_viewport_rect().size.x - 50
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var unit_x = rng.randi_range(0, length)
-	var unit_y = rng.randi_range(0, height)
+	var unit_x = rng.randi_range(50, length)
+	var unit_y = rng.randi_range(50, height)
 	
 	
 	var unit = Individual.instance()

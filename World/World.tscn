@@ -42,4 +42,3 @@ scale = Vector2( 1, 2.44 )
 
 [node name="IndividualsController" type="Node" parent="."]
 script = ExtResource( 2 )
-INDIVUDUALS_AMOUNT = 80
