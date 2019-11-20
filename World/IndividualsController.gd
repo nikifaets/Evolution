@@ -1,5 +1,5 @@
 extends Node
-var Individual = load("res://Individual.tscn")
+var Individual = load("res://Individual/Individual.tscn")
 
 export var INDIVUDUALS_AMOUNT = 10
 
