@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
 
-export var MAX_DISTANCE = 200
-export var EPSILON_DISTANCE = 5
-export var SPEED = 5
-export var ITERATIONS = 10
+export var max_distance = 200
+export var epsilon_distance = 5
+export var health = 100
+export var ranged_damage = 20
+export var speed = 5
+export var iterations = 10
 var target_pos = Vector2()
 var count_iterations = 0
 
@@ -19,8 +21,8 @@ func create_path():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	var new_target_x = rng.randi_range(0, MAX_DISTANCE)
-	var new_target_y = rng.randi_range(0, MAX_DISTANCE)
+	var new_target_x = rng.randi_range(0, max_distance)
+	var new_target_y = rng.randi_range(0, max_distance)
 	var exponent_x = rng.randi_range(1,2)
 	var exponent_y = rng.randi_range(1,2)
 	new_target_x *= pow(-1, exponent_x)
@@ -32,13 +34,13 @@ func create_path():
 	
 func move() -> void:
 	
-	if position.distance_to(target_pos) > EPSILON_DISTANCE:
+	if position.distance_to(target_pos) > epsilon_distance:
 		
 		var direction = target_pos - position
-		var collision_object = move_and_collide(direction.normalized()*SPEED)
+		var collision_object = move_and_collide(direction.normalized()*speed)
 		handle_collision(collision_object)
 		
-	elif count_iterations < ITERATIONS:
+	elif count_iterations < iterations:
 		
 		target_pos = create_path()
 		count_iterations += 1

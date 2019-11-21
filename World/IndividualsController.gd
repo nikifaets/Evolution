@@ -15,8 +15,8 @@ func _ready():
 
 func create_unit() -> void:
 	
-	var length = owner.get_viewport_rect().size.y - 50
-	var height = owner.get_viewport_rect().size.x - 50
+	var length = owner.get_viewport_rect().size.y 
+	var height = owner.get_viewport_rect().size.x 
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
