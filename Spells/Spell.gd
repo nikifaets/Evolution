@@ -1,7 +1,7 @@
-extends KinematicBody2D
+extends Node
 
 var caster
-var target
+var target = null
 var damage = 5
 var collider
 

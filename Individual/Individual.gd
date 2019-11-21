@@ -6,7 +6,7 @@ export var epsilon_distance = 5
 export var health = 100
 export var ranged_damage = 20
 export var speed = 5
-export var iterations = 10
+export var iterations = 50
 var target_pos = Vector2()
 var count_iterations = 0
 
@@ -49,7 +49,7 @@ func handle_collision(collision_object: KinematicCollision2D) -> void:
 	
 	if collision_object != null:
 		
-		if collision_object.collider.get_collision_layer_bit(1) or collision_object.collider.get_collision_layer_bit(2):
+		if collision_object.collider.get_collision_layer_bit(0) or collision_object.collider.get_collision_layer_bit(1):
 			
 			target_pos = create_path()
 	

@@ -1,20 +1,37 @@
-extends "../FollowerSpell.gd"
+extends "../Spell.gd"
 
-func _ready():
+var FireBombMissile = preload("FireBombMissile.tscn")
+
+var is_cast = false
+var collided = false
+var missile
+
+func _physics_process(delta):
 	
-	connect("deal_damage", self, "target_reached")
-	
+	if missile.collided:
+		deal_damage(target)
+		
 func cast(caster: KinematicBody2D, target: KinematicBody2D):
 	
-	caster.owner.add_child(self)
-	damage = caster.RANGED_DAMAGE
+	if is_cast:
+		pass
+	
+	missile = FireBombMissile.instance()
+	missile.position = caster.position
+	missile.target = target
+	missile.damage = caster.ranged_damage
+
+	caster.get_parent().call_deferred("add_child", missile)
+	$Cooldown.start()
+	
 	
 func deal_damage(target: KinematicBody2D):
 	
+	target = null
 	target.take_damage(damage)
+	queue_free()
+	print("queue_freed")
 	
+func _on_Cooldown_timeout():
 	
-
-	
-	
-
+	is_cast = false
