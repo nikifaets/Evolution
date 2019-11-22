@@ -5,7 +5,6 @@ export var INDIVIDUALS_AMOUNT = 2
 
 func _ready():
 	
-
 	for i in range(0, INDIVIDUALS_AMOUNT):
 		call_deferred("create_unit")
 		
@@ -21,8 +20,8 @@ func create_unit() -> void:
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var unit_x = rng.randi_range(0, length)
-	var unit_y = rng.randi_range(0, height)
+	var unit_x = rng.randi_range(50, length-50)
+	var unit_y = rng.randi_range(50, height-50)
 	
 	
 	var unit = Individual.instance()

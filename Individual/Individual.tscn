@@ -9,11 +9,12 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 53.6925
+radius = 34.7978
 
 [node name="Individual" type="KinematicBody2D"]
 collision_mask = 3
 script = ExtResource( 1 )
+iterations = 244
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
