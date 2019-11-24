@@ -10,11 +10,13 @@ func cast(caster: KinematicBody2D, target: KinematicBody2D):
 	if is_cast == true:
 		return
 	
+	if target.filename.find("Missile") > -1:
+		print("cast in firebomb, target: ", target.filename)
 	missile = FireBombMissile.instance()
 	missile.position = caster.position
-	missile.target = target
 	missile.damage = caster.ranged_damage
-
+	missile.set_target(target)
+	
 	caster.get_parent().call_deferred("add_child", missile)
 	$Cooldown.start()
 

@@ -9,9 +9,11 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 34.7978
+radius = 20.025
 
-[node name="Individual" type="KinematicBody2D"]
+[node name="Individual" type="KinematicBody2D" groups=[
+"Individuals",
+]]
 collision_mask = 3
 script = ExtResource( 1 )
 iterations = 244

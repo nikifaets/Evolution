@@ -5,6 +5,7 @@ var direction
 signal target_reached
 export var epsilon_distance = 2
 var target = null
+var target_id
 
 func follow_target():
 

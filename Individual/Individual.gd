@@ -61,10 +61,11 @@ func set_position(pos: Vector2) -> void:
 	
 func is_in_viewport(pos: Vector2):
 	
-	if pos.x < 0 or pos.x > get_parent().get_viewport_rect().size.x or pos.y < 0 or pos.y > get_parent().get_viewport_rect().size.y:
+	return not (pos.x < 0 or 
+	pos.x > get_parent().get_viewport_rect().size.x or 
+	pos.y < 0 or 
+	pos.y > get_parent().get_viewport_rect().size.y)
 		
-		return false
-	return true
 	
 	
 	
