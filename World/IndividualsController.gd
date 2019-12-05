@@ -9,10 +9,6 @@ func _ready():
 		call_deferred("create_unit")
 		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func create_unit() -> void:
 	
 	var length = owner.get_viewport_rect().size.x  

@@ -8,16 +8,6 @@ func _ready():
 	
 	connect("target_reached", self, "on_collision")
 	
-func _physics_process(delta):
-	
-	
-	if is_instance_valid(target) and target.get_instance_id() == target_id:
-			
-		follow_target()
-		
-	else:
-		
-		queue_free()
 		
 func on_collision():
 	

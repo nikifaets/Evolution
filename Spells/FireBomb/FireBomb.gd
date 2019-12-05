@@ -12,6 +12,7 @@ func cast(caster: KinematicBody2D, target: KinematicBody2D):
 	
 	if target.filename.find("Missile") > -1:
 		print("cast in firebomb, target: ", target.filename)
+		
 	missile = FireBombMissile.instance()
 	missile.position = caster.position
 	missile.damage = caster.ranged_damage

@@ -4,6 +4,7 @@
 [ext_resource path="res://Sprites/firebomb.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 12.2024
 
 [node name="Missile" type="KinematicBody2D"]
 input_pickable = true

@@ -6,15 +6,14 @@ var fire_bomb = FireBomb.instance()
 func _ready():
 	
 	owner.get_parent().add_child(fire_bomb)
-	
-func _on_RangedAttackRange_body_entered(body):
-	
-	if body.get_collision_layer_bit(0) and owner != body:
-		
-		if body.filename.find("Missile") > -1:
-			print("casting attack against", body.filename)
-		cast_spell(body)
 
+func _process(delta):
+	
+	if $RangedAttackRange.targets_in_range.size() > 0:
+		
+		var target = $RangedAttackRange.targets_in_range[0]
+		cast_spell(target)
+	
 func cast_spell(target: KinematicBody2D):
 
 		fire_bomb.cast(owner, target)
