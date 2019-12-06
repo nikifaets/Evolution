@@ -10,7 +10,6 @@ func _on_RangedAttackRange_body_entered(body):
 	
 	if body.get_collision_layer_bit(0) and body != owner:
 		
-		#print("adding body ", body)
 		targets_in_range.append(body)
 
 
