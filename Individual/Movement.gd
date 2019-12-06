@@ -6,6 +6,10 @@ export var iterations = 100
 var target_pos = Vector2()
 var count_iterations = 0
 
+func _physics_process(delta):
+	
+	move()
+	
 func create_path():
 	
 	var rng = RandomNumberGenerator.new()

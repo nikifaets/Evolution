@@ -12,7 +12,3 @@ func cast(var caster: KinematicBody2D, var target: KinematicBody2D):
 func deal_damage(var target: KinematicBody2D):
 	pass
 	
-
-	
-	
-
