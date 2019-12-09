@@ -1,109 +1,28 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Individual/Individual.gd" type="Script" id=1]
-[ext_resource path="res://Individual/Stats.gd" type="Script" id=2]
-[ext_resource path="res://Individual/HealthBar.gd" type="Script" id=3]
-[ext_resource path="res://Individual/Movement.gd" type="Script" id=4]
-[ext_resource path="res://Individual/RangedAttack.gd" type="Script" id=5]
-[ext_resource path="res://Individual/RangedAttackRange.gd" type="Script" id=6]
-[ext_resource path="res://Individual/MeleeAttack.gd" type="Script" id=7]
-[ext_resource path="res://Individual/MeleeAttackRange.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/Warrior/Idle.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Warrior/Attack.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/icon.png" type="Texture" id=11]
-[ext_resource path="res://Individual/AnimationControl.gd" type="Script" id=12]
+[ext_resource path="res://Individual/Movement.gd" type="Script" id=2]
+[ext_resource path="res://Individual/BaseClass.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0.72549, 0.14902, 1 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.956863, 0, 0, 1 )
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 39.1528
-
-[sub_resource type="CircleShape2D" id=5]
-radius = 27.9815
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "MeleeAttack",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 1.0
-} ]
 
 [node name="Individual" type="KinematicBody2D" groups=[
 "Individuals",
 ]]
+position = Vector2( -0.000488281, 0.474663 )
 collision_mask = 3
 script = ExtResource( 1 )
-strength = null
-intelligence = null
-health = null
-ranged_damage = 10
-melee_damage = null
-speed = null
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Stats" type="Node" parent="."]
+[node name="Movement" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="HealthBar" type="ProgressBar" parent="Stats"]
-margin_left = -26.0
-margin_top = -27.0
-margin_right = 27.0
-margin_bottom = -11.0
-rect_scale = Vector2( 1, 0.48 )
-size_flags_horizontal = 0
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-percent_visible = false
-script = ExtResource( 3 )
+[node name="BaseClass" parent="." instance=ExtResource( 3 )]
 
-[node name="Movement" type="Node" parent="."]
-script = ExtResource( 4 )
+[editable path="BaseClass"]
 
-[node name="Attack" type="Node" parent="."]
+[editable path="BaseClass/Attack/FireBomb"]
 
-[node name="RangedAttack" type="Node" parent="Attack"]
-script = ExtResource( 5 )
-
-[node name="RangedAttackRange" type="Area2D" parent="Attack/RangedAttack"]
-script = ExtResource( 6 )
-
-[node name="RangedAttackCollision" type="CollisionShape2D" parent="Attack/RangedAttack/RangedAttackRange"]
-scale = Vector2( 3, 3 )
-shape = SubResource( 4 )
-one_way_collision_margin = 0.0
-
-[node name="MeleeAttack" type="Node" parent="Attack"]
-script = ExtResource( 7 )
-
-[node name="MeleeAttackRange" type="Area2D" parent="Attack/MeleeAttack"]
-script = ExtResource( 8 )
-
-[node name="MeleeAttackCollision" type="CollisionShape2D" parent="Attack/MeleeAttack/MeleeAttackRange"]
-shape = SubResource( 5 )
-
-[node name="AnimationControl" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 6 )
-animation = "MeleeAttack"
-script = ExtResource( 12 )
-[connection signal="body_entered" from="Attack/RangedAttack/RangedAttackRange" to="Attack/RangedAttack/RangedAttackRange" method="_on_RangedAttackRange_body_entered"]
-[connection signal="body_exited" from="Attack/RangedAttack/RangedAttackRange" to="Attack/RangedAttack/RangedAttackRange" method="_on_RangedAttackRange_body_exited"]
-[connection signal="melee_attack" from="Attack/MeleeAttack" to="AnimationControl" method="_on_MeleeAttack_melee_attack"]
-[connection signal="body_entered" from="Attack/MeleeAttack/MeleeAttackRange" to="Attack/MeleeAttack" method="_on_MeleeAttackRange_body_entered"]
-[connection signal="animation_finished" from="AnimationControl" to="AnimationControl" method="_on_AnimationControl_animation_finished"]
+[editable path="BaseClass/Attack/AutoAttack"]

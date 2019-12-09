@@ -1,16 +1,20 @@
 extends KinematicBody2D
 
-export var strength = 0
-export var intelligence = 0
-sdfdsf
-export var health = 100
-export var ranged_damage = 20
-export var melee_damage = 10
-export var speed = 10
+var speed
 
+func _ready():
+	
+	speed = $BaseClass.find_node("Stats").speed
+	$BaseClass.owner_unit = self
+
+		
 func take_damage(dmg):
 	
-	$Stats.take_damage(dmg)
+	$BaseClass.find_node("Stats").take_damage(dmg)
+	
+func die():
+	
+	queue_free()
 	
 	
 	

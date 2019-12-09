@@ -10,6 +10,7 @@ var target_id
 	
 func _physics_process(delta):
 	
+	#print("following, coordinates: ", position)
 	if is_instance_valid(target) and target.get_instance_id() == target_id:
 			
 		follow_target()

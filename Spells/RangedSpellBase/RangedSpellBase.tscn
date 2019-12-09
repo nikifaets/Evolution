@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 138.37
+
+[node name="RangedSpellBase" type="Node"]
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Range"]
+rotation = -0.125484
+shape = SubResource( 1 )
