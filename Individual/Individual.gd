@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var strength = 0
 export var intelligence = 0
-
+sdfdsf
 export var health = 100
 export var ranged_damage = 20
 export var melee_damage = 10
