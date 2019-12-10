@@ -11,8 +11,8 @@ func _ready():
 
 func create_unit() -> void:
 	
-	var length = owner.get_viewport_rect().size.x  
-	var height = owner.get_viewport_rect().size.y 
+	var length = owner.map_len  
+	var height = owner.map_height
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -21,5 +21,6 @@ func create_unit() -> void:
 	
 	
 	var unit = Individual.instance()
+	unit.set_boundaries(length, height)
 	unit.set_position(Vector2(unit_x, unit_y))
 	get_parent().add_child(unit)

@@ -5,9 +5,15 @@ export var epsilon_distance = 5
 export var iterations = 100
 var target_pos = Vector2()
 var count_iterations = 0
+var map_len
+var map_height
 
-func _physics_process(delta):
+func _ready():
 	
+	target_pos = create_path()
+	
+func _physics_process(delta):
+
 	move()
 	
 func create_path():
@@ -15,8 +21,8 @@ func create_path():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	
-	var new_target_x = rng.randi_range(owner.speed, max_distance)
-	var new_target_y = rng.randi_range(owner.speed, max_distance)
+	var new_target_x = rng.randi_range(0, max_distance)
+	var new_target_y = rng.randi_range(0, max_distance)
 	var exponent_x = rng.randi_range(1,2)
 	var exponent_y = rng.randi_range(1,2)
 	new_target_x *= pow(-1, exponent_x)
@@ -59,7 +65,7 @@ func set_position(pos: Vector2) -> void:
 func is_in_viewport(pos: Vector2):
 	
 	return not (pos.x < 0 or 
-	pos.x > get_parent().get_viewport_rect().size.x or 
+	pos.x > map_len or 
 	pos.y < 0 or 
-	pos.y > get_parent().get_viewport_rect().size.y)
+	pos.y > map_height)
 		

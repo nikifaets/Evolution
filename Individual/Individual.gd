@@ -16,8 +16,9 @@ func die():
 	
 	queue_free()
 	
+func set_boundaries(map_len, map_height):
 	
-	
-	
+	$Movement.map_len = map_len
+	$Movement.map_height = map_height
 	
 

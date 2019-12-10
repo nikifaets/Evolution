@@ -20,9 +20,3 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="BaseClass" parent="." instance=ExtResource( 3 )]
-
-[editable path="BaseClass"]
-
-[editable path="BaseClass/Attack/FireBomb"]
-
-[editable path="BaseClass/Attack/AutoAttack"]

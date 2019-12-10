@@ -3,20 +3,23 @@
 [ext_resource path="res://Sprites/wall_texture.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 211.166 )
+extents = Vector2( 22.5974, 258.119 )
 
 [node name="Wall" type="Node2D"]
+scale = Vector2( 1, 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 6.80273, 515.535 )
+scale = Vector2( 1, 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.384314, 0.117647, 0.117647, 1 )
-position = Vector2( 0.135421, -0.0766572 )
+position = Vector2( 0.134599, 504.865 )
 rotation = 1.5708
-scale = Vector2( -0.27565, -0.221936 )
+scale = Vector2( -0.657044, -0.221936 )
 texture = ExtResource( 1 )
