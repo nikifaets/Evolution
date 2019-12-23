@@ -7,14 +7,15 @@ var target_pos = Vector2()
 var count_iterations = 0
 var map_len
 var map_height
-
+var done = false
 func _ready():
 	
 	target_pos = create_path()
 	
 func _physics_process(delta):
-
-	move()
+	
+	if not done:
+		move()
 	
 func create_path():
 	
@@ -47,6 +48,13 @@ func move() -> void:
 		
 		target_pos = create_path()
 		count_iterations += 1
+		
+	if count_iterations >= iterations:
+		
+		owner.emit_signal("player_out")
+		owner.remove_from_group("Active")
+		done = true
+
 		
 func handle_collision(collision_object: KinematicCollision2D) -> void:
 	

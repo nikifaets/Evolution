@@ -6,16 +6,27 @@ var can_cast = true
 var missile
 var owner_unit = get_parent()
 
-func _process(delta):
+
+func _physics_process(delta):
 	
 	if $Range.targets_in_range.size() > 0:
 		
-		var target = $Range.targets_in_range[0]
-		cast_spell(target)
+		var target = null
+
+		for i in range($Range.targets_in_range.size()):
+			
+			var potential_target = $Range.targets_in_range[i]
+			
+			if is_instance_valid(potential_target) and potential_target.is_in_group("Active"):
+				
+				target = $Range.targets_in_range[i]
+		
+		if target:
+
+			cast_spell(target)
 	
 func cast_spell(target: KinematicBody2D):
 		
-	#print("casting against target: ", target)
 	cast(owner_unit, target)
 	
 

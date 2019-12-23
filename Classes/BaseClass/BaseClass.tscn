@@ -5,9 +5,9 @@
 [ext_resource path="res://Spells/AutoAttack/AutoAttack.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Classes/BaseClass/Stats.gd" type="Script" id=4]
 [ext_resource path="res://Classes/BaseClass/HealthBar.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/Warrior/Idle.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Warrior/Attack.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/icon.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Warrior/Idle.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Warrior/Attack.png" type="Texture" id=8]
 [ext_resource path="res://Classes/BaseClass/AnimationControl.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -18,15 +18,15 @@ bg_color = Color( 0.956863, 0, 0, 1 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "MeleeAttack",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "MeleeAttack",
+"speed": 25.0
 } ]
 
 [node name="BaseClass" type="Node2D"]
@@ -60,4 +60,5 @@ scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "MeleeAttack"
 script = ExtResource( 9 )
+[connection signal="autoattack" from="Attack/AutoAttack" to="AnimationControl" method="_on_AutoAttack"]
 [connection signal="animation_finished" from="AnimationControl" to="AnimationControl" method="_on_AnimationControl_animation_finished"]

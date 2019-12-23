@@ -3,6 +3,8 @@ extends "../Spell.gd"
 var can_attack = true
 var owner_unit = get_parent()
 
+signal autoattack
+	
 func cast(caster, target):
 	
 	if can_attack:
@@ -12,6 +14,9 @@ func cast(caster, target):
 		
 		can_attack = false
 		$Cooldown.start()
+		emit_signal("autoattack")
+		
+		
 	
 func deal_damage(target):
 	

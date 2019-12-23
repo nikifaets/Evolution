@@ -10,7 +10,6 @@ func _physics_process(delta):
 	
 	position += velocity.normalized()*speed
 
-	
 func handle_input():
 	
 	if Input.is_action_just_pressed("move_up"):

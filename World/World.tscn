@@ -30,8 +30,9 @@ scale = Vector2( 1, 2.1 )
 
 [node name="IndividualsController" type="Node" parent="."]
 script = ExtResource( 3 )
-INDIVIDUALS_AMOUNT = 36
+individuals_amount = 143
 
 [node name="PlayerControlledCamera" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1101.12, 572.584 )
+position = Vector2( 166.405, 756.331 )
 current = true
+zoom = Vector2( 2, 2 )

@@ -8,6 +8,7 @@
 
 [node name="Individual" type="KinematicBody2D" groups=[
 "Individuals",
+"Active",
 ]]
 position = Vector2( -0.000488281, 0.474663 )
 collision_mask = 3
@@ -18,5 +19,6 @@ shape = SubResource( 1 )
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource( 2 )
+iterations = 20
 
 [node name="BaseClass" parent="." instance=ExtResource( 3 )]
