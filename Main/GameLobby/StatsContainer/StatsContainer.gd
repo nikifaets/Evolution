@@ -1,16 +1,18 @@
 extends VBoxContainer
 
-var Individual = preload("res://Individual/Individual.tscn")
-var class_label
+var unit
+var unit_class
 
-func _ready():
+func set_unit(unit):
 	
-	var unit = Individual.instance()
-	var unit_class = unit.find_node("Class")
+	self.unit = unit
+	unit_class = unit.find_node("Class")
+	fill_containers()
 
-		
+func fill_containers():
+	
 	var class_label = unit_class.class_label
-	
+	 
 	$Head/TextureRect.set_image(class_label)
 	$Head/Class.set_text("Class: " + class_label)
 	

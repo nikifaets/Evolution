@@ -4,13 +4,14 @@ var map_len = 2000
 var map_height = 2000
 export var individuals_amount = 2
 
-func _ready():
+func create_units():
 	
 	for i in range(0, individuals_amount):
 		
-		call_deferred("create_unit")
+		var unit = create_unit()
+		owner.units.append(unit)
 			
-func create_unit() -> void:
+func create_unit():
 	
 	
 	var rng = RandomNumberGenerator.new()
@@ -22,7 +23,8 @@ func create_unit() -> void:
 	unit.set_boundaries(map_len, map_height)
 	unit.set_position(Vector2(unit_x, unit_y))
 	unit.connect("player_out", self, "on_player_out")
-	owner.units.append(unit)
+	
+	return unit
 	
 	
 func on_player_out():
