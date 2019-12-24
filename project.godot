@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Evolution"
-run/main_scene="res://GUI/Main.tscn"
-config/icon="res://Sprites/icon.png"
+run/main_scene="res://Main/Main.tscn"
+config/icon="res://Sprites/BaseClass/idle.png"
 
 [display]
 

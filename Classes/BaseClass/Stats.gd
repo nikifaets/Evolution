@@ -1,7 +1,7 @@
 extends Node
 
 export var strength = 0
-export var intelligence = 0
+export var intellect = 0
 
 export var health = 100
 export var ranged_damage = 10

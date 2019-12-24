@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main/MainStartButton.gd" type="Script" id=1]
+
+
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0509804, 0.701961, 0.121569, 1 )
+shadow_color = Color( 0.14902, 0.890196, 0.109804, 0.6 )
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.341176, 0.901961, 0.0862745, 1 )
+shadow_color = Color( 0.639216, 0.780392, 0.0470588, 0.6 )
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.352941, 0.776471, 0.247059, 1 )
+shadow_color = Color( 0.14902, 0.607843, 0.054902, 0.6 )
+shadow_size = 11
+
+[node name="MainStartButton" type="Button"]
+margin_right = 215.0
+margin_bottom = 44.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "Play"
+script = ExtResource( 1 )
