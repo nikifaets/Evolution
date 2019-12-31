@@ -3,9 +3,11 @@ var Individual = load("res://Individual/Individual.tscn")
 var map_len = 2000
 var map_height = 2000
 export var individuals_amount = 2
+var units_out = 0
+signal all_units_out
 
 func create_units():
-	
+
 	var units = []
 	for i in range(0, individuals_amount):
 		
@@ -33,3 +35,12 @@ func create_unit():
 func on_player_out():
 	
 	print("player out")
+	units_out += 1
+	
+	if units_out == individuals_amount:
+		emit_signal("all_units_out")
+		
+func kill_unit(unit):
+	
+	var meta = unit.get_meta_data()
+	owner.units_post_meta.append(meta)

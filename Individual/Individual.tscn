@@ -27,7 +27,7 @@ shape = SubResource( 1 )
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource( 2 )
-iterations = 20
+iterations = 5
 
 [node name="Meta" type="Node" parent="."]
 script = ExtResource( 3 )

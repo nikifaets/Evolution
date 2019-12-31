@@ -11,5 +11,4 @@ func _process(delta):
 
 	value = get_parent().find_node("Meta").health
 
-	#set_position(owner.position - offset)
 	

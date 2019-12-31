@@ -17,6 +17,7 @@ func take_damage(var damage):
 	
 func die():
 	
+	get_parent().kill_unit(self)
 	emit_signal("player_out")
 	queue_free()
 	
