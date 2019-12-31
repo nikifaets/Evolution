@@ -5,12 +5,15 @@ signal player_out
 
 func _ready():
 	
-	speed = $BaseClass.find_node("Stats").speed
+	speed = $Meta.speed
 	$BaseClass.owner_unit = self
 
-func take_damage(dmg):
+func take_damage(var damage):
 	
-	$BaseClass.find_node("Stats").take_damage(dmg)
+	$Meta.health -= damage
+
+	if $Meta.health <= 0:
+		die()
 	
 func die():
 	

@@ -9,7 +9,7 @@ func cast(caster, target):
 	
 	if can_attack:
 		
-		damage = caster.find_node("Stats").melee_damage
+		damage = caster.find_node("Meta").melee_damage
 		deal_damage(target)
 		
 		can_attack = false
@@ -31,6 +31,6 @@ func _on_Cooldown_timeout():
 func _on_Range_body_entered(body):
 			
 		if body.get_collision_layer_bit(0) and body != owner_unit:
-			cast(owner, body)
+			cast(owner.owner_unit, body)
 	
 

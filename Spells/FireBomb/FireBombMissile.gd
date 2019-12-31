@@ -6,7 +6,7 @@ var collision_count = 0
 	
 func deal_damage():
 		
-		target.find_node("Stats").take_damage(damage)
+		target.take_damage(damage)
 		queue_free()
 	
 func set_target(target: KinematicBody2D):

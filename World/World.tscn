@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Environment/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Camera/PlayerControlledCamera/PlayerControlledCamera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://IndividualsController/IndividualsController.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,5 +31,3 @@ scale = Vector2( 1, 2.1 )
 position = Vector2( 166.405, 756.331 )
 current = true
 zoom = Vector2( 2, 2 )
-
-[node name="IndividualsController2" parent="." instance=ExtResource( 4 )]

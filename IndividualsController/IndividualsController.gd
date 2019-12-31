@@ -6,10 +6,13 @@ export var individuals_amount = 2
 
 func create_units():
 	
+	var units = []
 	for i in range(0, individuals_amount):
 		
 		var unit = create_unit()
-		owner.units.append(unit)
+		units.append(unit)
+		
+	return units
 			
 func create_unit():
 	
@@ -29,5 +32,4 @@ func create_unit():
 	
 func on_player_out():
 	
-	pass
-	#print("player out")
+	print("player out")

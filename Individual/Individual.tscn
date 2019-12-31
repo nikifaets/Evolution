@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Individual/Individual.gd" type="Script" id=1]
 [ext_resource path="res://Individual/Movement.gd" type="Script" id=2]
 [ext_resource path="res://Individual/Class.gd" type="Script" id=3]
 [ext_resource path="res://Classes/BaseClass/BaseClass.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Individual/HealthBar.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.176471, 0.854902, 0.117647, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.835294, 0.0392157, 0.0392157, 1 )
 
 [node name="Individual" type="KinematicBody2D" groups=[
 "Active",
@@ -22,8 +29,17 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 iterations = 20
 
-[node name="Class" type="Node" parent="."]
+[node name="Meta" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="BaseClass" parent="Class" instance=ExtResource( 4 )]
-position = Vector2( -0.000488281, 0.474663 )
+[node name="BaseClass" parent="." instance=ExtResource( 4 )]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = -33.8141
+margin_top = -35.9482
+margin_right = 34.1859
+margin_bottom = -25.9482
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+script = ExtResource( 5 )

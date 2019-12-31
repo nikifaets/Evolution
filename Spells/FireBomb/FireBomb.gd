@@ -38,7 +38,7 @@ func cast(caster, target):
 
 	missile = FireBombMissile.instance()
 	missile.position = caster.position
-	missile.damage = caster.find_node("Stats").ranged_damage
+	missile.damage = caster.find_node("Meta").ranged_damage
 	missile.set_target(target)
 	
 	get_tree().get_root().call_deferred("add_child", missile)
