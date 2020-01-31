@@ -8,14 +8,13 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.176471, 0.854902, 0.117647, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.835294, 0.0392157, 0.0392157, 1 )
 
 [node name="Individual" type="KinematicBody2D" groups=[
-"Active",
 "Individuals",
 ]]
 position = Vector2( -0.000488281, 0.474663 )
@@ -27,7 +26,7 @@ shape = SubResource( 1 )
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource( 2 )
-iterations = 5
+iterations = 18
 
 [node name="Meta" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -39,7 +38,7 @@ margin_left = -33.8141
 margin_top = -35.9482
 margin_right = 34.1859
 margin_bottom = -25.9482
-custom_styles/fg = SubResource( 4 )
+custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 percent_visible = false
 script = ExtResource( 5 )

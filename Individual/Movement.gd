@@ -52,7 +52,8 @@ func move() -> void:
 	if count_iterations >= iterations:
 		
 		owner.emit_signal("player_out")
-		owner.remove_from_group("Active")
+		remove_from_group("Active")
+		owner.active = false
 		done = true
 
 		

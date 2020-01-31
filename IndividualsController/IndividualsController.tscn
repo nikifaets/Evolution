@@ -4,4 +4,4 @@
 
 [node name="IndividualsController" type="Node"]
 script = ExtResource( 1 )
-individuals_amount = 143
+individuals_amount = 51

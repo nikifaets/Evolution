@@ -9,7 +9,7 @@ func cast(caster, target):
 	
 	if can_attack:
 		
-		damage = caster.find_node("Meta").melee_damage
+		damage = caster.find_node("Meta").meta["melee_damage"]
 		deal_damage(target)
 		
 		can_attack = false

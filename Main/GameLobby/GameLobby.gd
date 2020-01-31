@@ -29,12 +29,7 @@ func _on_StartFight_button_up():
 	world = WorldScene.instance()
 	$GUI.queue_free()
 	add_child(world)
-	var counter = 1
-	for unit in units:
-		
-		print(counter, unit)
-		add_child(unit)
-		counter += 1
+	world.set_units(units)
 
 func _on_IndividualsController_all_units_out():
 	print("all out")

@@ -17,17 +17,22 @@ func _physics_process(delta):
 			
 			var potential_target = $Range.targets_in_range[i]
 			
-			if is_instance_valid(potential_target) and potential_target.is_in_group("Active"):
+			if is_instance_valid(potential_target) and potential_target.active:
 				
 				target = $Range.targets_in_range[i]
 		
 		if target:
+			
 
 			cast_spell(target)
 	
 func cast_spell(target: KinematicBody2D):
 		
-	cast(owner_unit, target)
+	if target.active:
+		
+
+		#print("cast against ", target.id)
+		cast(owner_unit, target)
 	
 
 
@@ -38,7 +43,7 @@ func cast(caster, target):
 
 	missile = FireBombMissile.instance()
 	missile.position = caster.position
-	missile.damage = caster.find_node("Meta").ranged_damage
+	missile.damage = caster.find_node("Meta").meta["ranged_damage"]
 	missile.set_target(target)
 	
 	get_tree().get_root().call_deferred("add_child", missile)

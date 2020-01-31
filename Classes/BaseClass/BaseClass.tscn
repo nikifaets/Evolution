@@ -8,7 +8,7 @@
 [ext_resource path="res://Sprites/Warrior/Attack.png" type="Texture" id=6]
 [ext_resource path="res://Classes/BaseClass/AnimationControl.gd" type="Script" id=7]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
@@ -32,7 +32,7 @@ script = ExtResource( 1 )
 
 [node name="AnimationControl" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "MeleeAttack"
 script = ExtResource( 7 )
 [connection signal="autoattack" from="Attack/AutoAttack" to="AnimationControl" method="_on_AutoAttack"]

@@ -27,20 +27,7 @@ func create_unit():
 	var unit = Individual.instance()
 	unit.set_boundaries(map_len, map_height)
 	unit.set_position(Vector2(unit_x, unit_y))
-	unit.connect("player_out", self, "on_player_out")
 	
 	return unit
 	
 	
-func on_player_out():
-	
-	print("player out")
-	units_out += 1
-	
-	if units_out == individuals_amount:
-		emit_signal("all_units_out")
-		
-func kill_unit(unit):
-	
-	var meta = unit.get_meta_data()
-	owner.units_post_meta.append(meta)
