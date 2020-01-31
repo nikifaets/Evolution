@@ -3,9 +3,6 @@ extends VBoxContainer
 var unit
 var meta
 
-func set_unit(meta):
-	
-	fill_containers(meta)
 
 func fill_containers(meta):
 	
@@ -15,8 +12,8 @@ func fill_containers(meta):
 	$Head/Class.set_text("Class: " + class_label)
 	
 	var melee = meta["melee_damage"]
-	var intellect = meta["intellect"]
+	var health = meta["health"]
 	
 	$Stats/Melee.set_text("melee: " + str(melee))
-	$Stats/Intellect.set_text("intellect: " + str(intellect))
+	$Stats/Intellect.set_text("health: " + str(health))
 	

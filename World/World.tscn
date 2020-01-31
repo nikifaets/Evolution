@@ -1,33 +1,54 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
-[ext_resource path="res://Environment/Wall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Camera/PlayerControlledCamera/PlayerControlledCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera/PlayerControlledCamera/PlayerControlledCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environment/Wall.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.329412, 0.0470588, 0.0470588, 1 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="PlayerControlledCamera" parent="." instance=ExtResource( 2 )]
+position = Vector2( 530, 650 )
+current = true
+zoom = Vector2( 2, 2 )
+
 [node name="Walls" type="Node" parent="."]
 
-[node name="Left" parent="Walls" instance=ExtResource( 2 )]
+[node name="Left" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( -3.6123, -28.0141 )
 scale = Vector2( 1, 2.1 )
 
-[node name="Right" parent="Walls" instance=ExtResource( 2 )]
+[node name="Right" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 2009.87, -24.7921 )
 scale = Vector2( 1, 2.1 )
 
-[node name="Top" parent="Walls" instance=ExtResource( 2 )]
+[node name="Top" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 2078.37, 15.5544 )
 rotation = 1.5708
 scale = Vector2( 1, 2.1 )
 
-[node name="Bottom" parent="Walls" instance=ExtResource( 2 )]
+[node name="Bottom" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 2073.44, 2052.81 )
 rotation = 1.5708
 scale = Vector2( 1, 2.1 )
 
-[node name="PlayerControlledCamera" parent="." instance=ExtResource( 3 )]
-position = Vector2( 166.405, 756.331 )
-current = true
-zoom = Vector2( 2, 2 )
+[node name="EndSceneTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="BackButton" type="Button" parent="GUILayer"]
+margin_left = 380.878
+margin_top = 200.0
+margin_right = 580.878
+margin_bottom = 300.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+[connection signal="timeout" from="EndSceneTimer" to="." method="_on_EndSceneTimer_timeout"]
+[connection signal="button_up" from="GUILayer/BackButton" to="." method="_on_BackButton_button_up"]

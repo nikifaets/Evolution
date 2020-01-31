@@ -5,8 +5,8 @@ export var epsilon_distance = 5
 export var iterations = 100
 var target_pos = Vector2()
 var count_iterations = 0
-var map_len
-var map_height
+var map_len = 100
+var map_height = 100
 var done = false
 func _ready():
 	
@@ -52,7 +52,6 @@ func move() -> void:
 	if count_iterations >= iterations:
 		
 		owner.emit_signal("player_out")
-		remove_from_group("Active")
 		owner.active = false
 		done = true
 

@@ -1,10 +1,15 @@
 extends Node
 
-var StatsContainer = preload("res://Main/GameLobby/StatsContainer/StatsContainer.tscn")
+var StatsContainerRoot = preload("res://Main/GameLobby/StatsContainer/StatsContainerRoot.tscn")
+var stats_containers = []
 
-func setup(units_meta):
-	for meta in units_meta:
+func add_container(units_meta):
+
+	var stats_container = StatsContainerRoot.instance()
+	stats_container.set_units(units_meta)
+	add_child(stats_container)
+	stats_containers.append(stats_container)
+	
+	if stats_containers.size() > 1:
 		
-		var stats_container = StatsContainer.instance()
-		stats_container.set_unit(meta)
-		$ScrollContainer/VBoxContainer.add_child(stats_container)
+		stats_container.set_visible(false)

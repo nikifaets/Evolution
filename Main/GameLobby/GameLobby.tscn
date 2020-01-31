@@ -10,15 +10,7 @@ script = ExtResource( 1 )
 [node name="IndividualsController" parent="." instance=ExtResource( 2 )]
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
-
-[node name="BackToLobby" type="Button" parent="."]
-visible = false
-margin_left = 341.855
-margin_top = 177.552
-margin_right = 467.855
-margin_bottom = 247.552
 [connection signal="all_units_out" from="IndividualsController" to="." method="_on_IndividualsController_all_units_out"]
 [connection signal="button_up" from="GUI/StartFight" to="." method="_on_StartFight_button_up"]
-[connection signal="button_up" from="BackToLobby" to="." method="_on_Button_button_up"]
 
 [editable path="GUI"]
