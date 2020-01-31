@@ -42,3 +42,21 @@ margin_bottom = 368.121
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 524.509
+margin_top = 28.0601
+margin_right = 564.509
+margin_bottom = 68.0601
+rect_scale = Vector2( 3.93972, 1.11512 )
+
+[node name="MoveLeft" type="Button" parent="HBoxContainer"]
+margin_right = 12.0
+margin_bottom = 39.0
+
+[node name="MoveRight" type="Button" parent="HBoxContainer"]
+margin_left = 16.0
+margin_right = 28.0
+margin_bottom = 39.0
+[connection signal="button_up" from="HBoxContainer/MoveLeft" to="." method="_on_MoveLeft_button_up"]
+[connection signal="button_up" from="HBoxContainer/MoveRight" to="." method="_on_MoveRight_button_up"]

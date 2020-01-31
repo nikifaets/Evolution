@@ -3,7 +3,6 @@ extends Node
 var StatsContainer = preload("StatsContainer/StatsContainer.tscn")
 var WorldScene = preload("res://World/World.tscn")
 var GUI = preload("res://Main/GameLobby/LobbyGUI.tscn")
-var ButtonBackToLobby = preload("res://Main/GameLobby/BackToLobby.tscn")
 
 var world
 var epochs = 0
@@ -17,7 +16,7 @@ func _ready():
 	
 	for unit in units:
 		
-		var meta = unit.find_node("Meta").get_meta_data()
+		var meta = unit.find_node("Meta").get_meta_data().duplicate()
 		units_meta.append(meta)
 		
 	$GUI.add_container(units_meta)
@@ -39,9 +38,9 @@ func kill_unit(unit):
 	var meta = unit.find_node("Meta").get_meta_data()
 	units_post_meta.append(meta)
 	
-func set_units_post(units):
+func set_units_post(units_set):
 	
-	for meta in units:
+	for meta in units_set:
 		
 		units_post_meta.append(meta)
 	
