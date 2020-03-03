@@ -2,8 +2,6 @@ extends VBoxContainer
 
 var Individual = preload("res://Individual/Individual.tscn")
 
-
-
 func fill_containers(meta):
 	
 	var class_label = meta.get("class_label")

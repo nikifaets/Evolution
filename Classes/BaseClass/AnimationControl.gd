@@ -3,8 +3,6 @@ extends AnimatedSprite
 func _ready():
 	
 	play("Idle")
-	
-
 
 func _on_AnimationControl_animation_finished():
 	
